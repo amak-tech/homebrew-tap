@@ -1,19 +1,41 @@
 class PortBuddy < Formula
-  desc "A tool to share a port opened on the local host to the public network"
+  desc "Tool to share a port opened on the local host to the public network"
   homepage "https://portbuddy.dev"
-  version "1.0.2-beta" # This will be updated by your CI
+  version "1.0.4-beta" # This will be updated by your CI
 
-  if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/amak-tech/port-buddy/releases/download/#{version}/portbuddy-macos-arm64"
-    sha256 "28737e4d4607c1183ce85e0aed24b6fe212aeb9f56352e12b0454047424710c8"
-  elsif OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/amak-tech/port-buddy/releases/download/#{version}/portbuddy-macos-arm64"
-    sha256 "28737e4d4607c1183ce85e0aed24b6fe212aeb9f56352e12b0454047424710c8"
+  if OS.mac?
+    if Hardware::CPU.intel?
+      url "https://github.com/amak-tech/port-buddy/releases/download/#{version}/portbuddy-macos-x64"
+      sha256 "d3d225f8719d7c29b3dfd78a1fcfe71832f416d99de6eae6bf06bc3c4d61ec87"
+    elsif Hardware::CPU.arm?
+      url "https://github.com/amak-tech/port-buddy/releases/download/#{version}/portbuddy-macos-arm64"
+      sha256 "dd488d51d7f80246f34cfa825fb4c8dee5cfa6635a51d6b13077c84ea68924d6"
+    end
+  elsif OS.linux?
+    if Hardware::CPU.intel?
+      url "https://github.com/amak-tech/port-buddy/releases/download/#{version}/portbuddy-linux-x64"
+      sha256 "633d67a45031daa7dac0f9a3cf379e61836e3dd6104258557dc1a841f197b9f3"
+    elsif Hardware::CPU.arm?
+      url "https://github.com/amak-tech/port-buddy/releases/download/#{version}/portbuddy-linux-arm64"
+      sha256 "bfcaccf881131a46d7c4fe9cd11913e1ab6e29035fa3bb98cc6cdc9e0be9ac3d"
+    end
   end
 
   def install
-    # Rename the downloaded binary to 'port-buddy' and install it in the bin directory
-    binary_name = OS.mac? && Hardware::CPU.arm? ? "portbuddy-macos-arm64" : "portbuddy-macos-x64"
+    if OS.mac?
+      if Hardware::CPU.intel?
+        binary_name = "portbuddy-macos-x64"
+      elsif Hardware::CPU.arm?
+        binary_name = "portbuddy-macos-arm64"
+      end
+    elsif OS.linux?
+      if Hardware::CPU.intel?
+        binary_name = "portbuddy-linux-x64"
+      elsif Hardware::CPU.arm?
+        binary_name = "portbuddy-linux-arm64"
+      end
+    end
+
     bin.install binary_name => "portbuddy"
   end
 
