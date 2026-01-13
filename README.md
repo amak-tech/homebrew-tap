@@ -1,16 +1,18 @@
-# Amak-tech Tap
+# Port Buddy Tap
+
+See [Port Buddy's Installation Guide](https://portbuddy.dev/install).
 
 ## How do I install these formulae?
 
-`brew install amak-tech/tap/<formula>`
+`brew install amak-tech/tap/portbuddy`
 
-Or `brew tap amak-tech/tap` and then `brew install <formula>`.
+Or `brew tap amak-tech/tap` and then `brew install portbuddy`.
 
 Or, in a `brew bundle` `Brewfile`:
 
 ```ruby
 tap "amak-tech/tap"
-brew "<formula>"
+brew "portbuddy"
 ```
 
 ## Documentation
