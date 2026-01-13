@@ -1,4 +1,4 @@
-class PortBuddy < Formula
+class Portbuddy < Formula
   desc "Tool to share a port opened on the local host to the public network"
   homepage "https://portbuddy.dev"
   version "1.0.4-beta" # This will be updated by your CI
