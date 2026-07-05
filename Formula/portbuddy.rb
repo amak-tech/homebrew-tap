@@ -1,23 +1,23 @@
 class Portbuddy < Formula
   desc "Tool to share a port opened on the local host to the public network"
   homepage "https://portbuddy.dev"
-  version "1.0.16" # This will be updated by your CI
+  version "1.0.17" # This will be updated by your CI
 
   if OS.mac?
     if Hardware::CPU.intel?
       url "https://github.com/amak-tech/port-buddy/releases/download/#{version}/portbuddy-macos-x64"
-      sha256 "ccccbdd2363ce3608987fda8b72f44e6f774d23b8fd1141cd5562728054dd9ca"
+      sha256 "0b7fa04f6c3d4cbfb746bbcb921d00860cc574138c147911d8fdfad8a662eb90"
     elsif Hardware::CPU.arm?
       url "https://github.com/amak-tech/port-buddy/releases/download/#{version}/portbuddy-macos-arm64"
-      sha256 "c8641f538bb5735178d072c0e712ab4410aaf101f421e2a5761931eac0269cd1"
+      sha256 "329cbe74927cfda3d47655a9485138deae30270f98ab75d2505328c986c4fe54"
     end
   elsif OS.linux?
     if Hardware::CPU.intel?
       url "https://github.com/amak-tech/port-buddy/releases/download/#{version}/portbuddy-linux-x64"
-      sha256 "37fd3e01389754b72a151b8e2bed86a05e133883364fd201035f3f66124b937d"
+      sha256 "739bc092f6a39b670841db17b0ed817c951b258604b860dd7e4d102249a13553"
     elsif Hardware::CPU.arm?
       url "https://github.com/amak-tech/port-buddy/releases/download/#{version}/portbuddy-linux-arm64"
-      sha256 "760724056572338ca284edc0be918286dd30ea8183fac6f2406d31cb8f85ccd5"
+      sha256 "c26fea14515b5730898e37c8ba7c498c4fd73b515c639e3d6b83b7e8e6795a5a"
     end
   end
 
